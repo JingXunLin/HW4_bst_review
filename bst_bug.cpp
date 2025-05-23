@@ -149,7 +149,7 @@ void BinarySearchTree::remove(int d)	// add one colon
 	if (curr->left != NULL && curr->right != NULL)
 	{
 		tree_node* chkr;
-		ckhr = curr->right;
+		chkr = curr->right;	//misspell chkr as ckhr
 		if ((chkr->left == NULL) && (chkr->right == NULL))
 		{
 			curr = chkr;
@@ -161,7 +161,7 @@ void BinarySearchTree::remove(int d)	// add one colon
 			//if the node's right child has a left child
 			// Move all the way down left to locate smallest element
 
-			if (curr->right)->left != NULL)
+			if ((curr->right)->left != NULL)		//unclosed parentheses  miss a (
 			{
 				tree_node* lcurr;
 				tree_node* lcurrp;
@@ -169,7 +169,7 @@ void BinarySearchTree::remove(int d)	// add one colon
 				lcurr = (curr->right)->left;
 				while (lcurr->left != NULL)
 				{
-					lcurrp = lcurr
+					lcurrp = lcurr;		//Miss a semicolon
 					lcurr = lcurr->left;
 				}
 				curr->data = lcurr->data;
@@ -180,7 +180,7 @@ void BinarySearchTree::remove(int d)	// add one colon
 			{
 				tree_node* tmp;
 				tmp = curr->right;
-				curr->data = tmp->data
+				curr->data = tmp->data;			//Miss a semicolon
 				curr->right = tmp->right;
 				delete tmp;
 			}
@@ -209,7 +209,7 @@ void BinarySearchTree::inorder(tree_node* p)
 
 void BinarySearchTree::print_preorder()
 {
-	preorder(rooot);
+	preorder(root); // misspell root as rooot
 }
 
 void BinarySearchTree::preorder(tree_node* p)
@@ -217,7 +217,7 @@ void BinarySearchTree::preorder(tree_node* p)
 	if (p != NULL)
 	{
 		cout << " " << p->data << " ";
-		if (p->left) {} preorder(p->left);
+		if (p->left) { preorder(p->left); } // wrong braces, it should contaion the statement
 		if (p->right) preorder(p->right);
 	}
 	else return;
@@ -230,7 +230,7 @@ void BinarySearchTree::print_postorder()
 
 void BinarySearchTree::postorder(tree_node* p)
 {
-	if (p = NULL)
+	if (p == NULL)	//should be == instead of =
 	{
 		if (p->left) postorder(p->left);
 		if (p->right) postorder(p->right);
@@ -260,7 +260,7 @@ int main()
 		{
 		case 1: cout << " Enter Number to be inserted : ";
 			cin >> tmp;
-			b.inssert(tmp);
+			b.insert(tmp);	//misspell insert as inssert
 			break;
 		case 2: cout << endl;
 			cout << " In-Order Traversal " << endl;
@@ -279,7 +279,7 @@ int main()
 			break;
 		case 5: cout << " Enter data to be deleted : ";
 			cin >> tmp1;
-			b.remove(ch);
+			b.remove(tmp1);	//parameter should be tmp1
 			break;
 		case 6: system("pause");
 			return 0;
